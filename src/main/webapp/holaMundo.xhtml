@@ -13,7 +13,11 @@
 </head>
 
 <body>
-${holaMundo.saludo}
+<h:form>
+    <h:outputLabel value="Igrese Nombre"></h:outputLabel>
+    <h:inputText value="#{holaMundo.saludo}"></h:inputText>
+    <h:commandButton value="Saludar" actionListener="#{holaMundo.saludar}"></h:commandButton>
+</h:form>
 
 </body>
 </html>

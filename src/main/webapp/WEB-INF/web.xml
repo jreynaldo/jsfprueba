@@ -28,7 +28,7 @@
     <session-timeout>30</session-timeout>
   </session-config>
   <welcome-file-list>
-    <welcome-file>faces/holaMundo.xhtml</welcome-file>
+    <welcome-file>faces/compras/registro_compras.xhtml</welcome-file>
   </welcome-file-list>
 
 </web-app>

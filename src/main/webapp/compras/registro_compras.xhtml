@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<head>
+    <title>Registro de Compras</title>
+</head>
+<h:body>
+    <h:form>
+<h:panelGrid id="contenedor" columns="2">
+        <h:outputLabel value="nitProveedor"></h:outputLabel>
+        <h:inputText value="#{registroCompraBean.registroCompra.nitProveedor}"/>
+
+        <h:outputLabel value="fechaFactura"/>
+        <h:inputText value="#{registroCompraBean.registroCompra.fechaFactura}"/>
+
+        <h:outputLabel value="numeroFactura"/>
+        <h:inputText value="#{registroCompraBean.registroCompra.numeroFactura}"/>
+        <h:outputLabel value="codigoAutorizacion"/>
+        <h:inputText value="#{registroCompraBean.registroCompra.codigoAutorizacion}"/>
+        <h:outputLabel value="importeBaseCf"/>
+        <h:inputText value="#{registroCompraBean.registroCompra.importeBaseCf}"/>
+        <h:outputLabel value="codigoControl"/>
+        <h:inputText value="#{registroCompraBean.registroCompra.codigoControl}"/>
+</h:panelGrid>
+    </h:form>
+</h:body>
+</html>

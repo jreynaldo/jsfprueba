@@ -15,4 +15,7 @@ public class HolaMundo {
     public void setSaludo(String saludo) {
         this.saludo = saludo;
     }
+    public void saludar(){
+        this.saludo = "Hola tu nombre es" + this.saludo;
+    }
 }
