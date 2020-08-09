@@ -1,23 +1,23 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
-<head>
-    <title>Title</title>
-    <script type="text/javascript">
-        function test(){
-            alert('test');
-            alert(document.getElementById('frmDashBoard:testbt').value);
-        }
-    </script>
-</head>
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
 
-<body>
-<h:form>
-    <h:outputLabel value="Igrese Nombre"></h:outputLabel>
-    <h:inputText value="#{holaMundo.saludo}"></h:inputText>
-    <h:commandButton value="Saludar" actionListener="#{holaMundo.saludar}"></h:commandButton>
-</h:form>
+</h:head>
 
-</body>
+<h:body>
+    <h2>Ajax Example</h2>
+
+    <h:form>
+        <h:inputText id = "inputName" value = "#{holaMundo.name}"></h:inputText>
+        <h:commandButton value = "Show Message">
+            <f:ajax execute = "inputName" render = "outputMessage" />
+        </h:commandButton>
+        <h2><h:outputText id = "outputMessage"
+                          value = "#{holaMundo.welcomeMessage != null ?
+            holaMundo.welcomeMessage : ''}"
+        /></h2>
+    </h:form>
+</h:body>
 </html>

@@ -6,16 +6,18 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 @SessionScoped
 public class HolaMundo {
-    private String saludo = "Hola Mundo con JSF !!";
+    private static final long serialVersionUID = 1L;
+    private String name;
 
-    public String getSaludo() {
-        return saludo;
+    public String getName() {
+        return name;
     }
 
-    public void setSaludo(String saludo) {
-        this.saludo = saludo;
+    public void setName(String name) {
+        this.name = name;
     }
-    public void saludar(){
-        this.saludo = "Hola tu nombre es" + this.saludo;
+
+    public String getWelcomeMessage() {
+        return "Hello " + name;
     }
 }

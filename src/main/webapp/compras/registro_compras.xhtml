@@ -2,29 +2,101 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
-<head>
+
+<h:head>
     <title>Registro de Compras</title>
-</head>
+    <h:outputStylesheet library="css" name="compras/registroCompras.css"/>
+    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+</h:head>
 <h:body>
-    <h:form>
-<h:panelGrid id="contenedor" columns="2">
-        <h:outputLabel value="nitProveedor"></h:outputLabel>
-        <h:inputText value="#{registroCompraBean.registroCompra.nitProveedor}"/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div class="container">
 
-        <h:outputLabel value="fechaFactura"/>
-        <h:inputText value="#{registroCompraBean.registroCompra.fechaFactura}"/>
 
-        <h:outputLabel value="numeroFactura"/>
-        <h:inputText value="#{registroCompraBean.registroCompra.numeroFactura}"/>
-        <h:outputLabel value="codigoAutorizacion"/>
-        <h:inputText value="#{registroCompraBean.registroCompra.codigoAutorizacion}"/>
-        <h:outputLabel value="importeBaseCf"/>
-        <h:inputText value="#{registroCompraBean.registroCompra.importeBaseCf}"/>
-        <h:outputLabel value="codigoControl"/>
-        <h:inputText value="#{registroCompraBean.registroCompra.codigoControl}"/>
-</h:panelGrid>
-    </h:form>
+        <h:form>
+            <h:commandButton styleClass="btn btn-primary" value="modifcar"
+            >
+                <f:ajax  execute="tablacompras" render="tablaCompras" />
+
+            </h:commandButton>
+            <h:dataTable autocomplete="off" id="tablaCompras" value="#{registroCompraBean.registroCompras}" var="compra">
+                <h:column>
+                    <f:facet name="header">
+                        <p:outputLabel value="NIT PREVEEDOR"></p:outputLabel>
+                    </f:facet>
+
+
+                    <div class="autocomplete" style="width:300px;">
+
+                        <h:inputText id="nitProveedor" autocomplete="off" name="nitProveedor"
+                                     value="#{compra.nitProveedor}" onblur="validarNit(this)"
+                                     onfocus="autocomplete2(this, #{registroCompraBean.getNitList()})"
+                        />
+
+                    </div>
+                </h:column>
+                <h:column style="width:13%; text-align: center">
+                    <f:facet name="header">
+                        <h:outputLabel value="FECHA"></h:outputLabel>
+                    </f:facet>
+                    <h:inputText id="txtFechaEmision" onkeyup="autoCompletarFecha(this)" onfocus="fechaFormat(this)"
+                                 value="#{compra.fechaFactura}"></h:inputText>
+
+                </h:column>
+                <h:column style="width:13%; text-align: center">
+                    <f:facet name="header">
+                        <h:outputLabel value="NUMERO FACTURA"></h:outputLabel>
+                    </f:facet>
+                    <h:inputText value="#{compra.numeroFactura}"></h:inputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="CODIGO AUTORIZACION"></h:outputLabel>
+                    </f:facet>
+                    <h:inputText value="#{compra.codigoAutorizacion}"></h:inputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="IMPORTE"></h:outputLabel>
+                    </f:facet>
+                    <h:inputText value="#{compra.importeBaseCf}"></h:inputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="CODIGO DE CONTROL"></h:outputLabel>
+                    </f:facet>
+                    <h:inputText value="#{compra.importeBaseCf}"></h:inputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="Modificar"></h:outputLabel>
+                    </f:facet>
+                    <h:commandButton styleClass="btn btn-primary" value="modifcar"
+                                   >
+                        <f:ajax  execute="tablacompras" render="tablaCompras" />
+
+                    </h:commandButton>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </div>
+
+    <h:outputScript library="js" name="compras/RegistroCompras.js"/>
+
+    <h:outputScript library="js" name="compras/AutoCompletar.js"/>
+    <h:outputScript library="js" name="compras/Validador.js"/>
+
+    <h:outputScript library="js" name="jquery-3.5.1.slim.min.js"/>
+    <h:outputScript library="js" name="popper.min.js"/>
+    <h:outputScript library="js" name="bootstrap.min.js"/>
 </h:body>
 </html>
