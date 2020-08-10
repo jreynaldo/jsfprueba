@@ -19,3 +19,9 @@ const autoCompletarFecha = (fecha) => {
         fecha.value = fecha.value + '/';
     }
 }
+
+const tablacompras = document.getElementById('formulario:tablaCompras');
+console.log(tablacompras.rows[0])
+tablacompras.addEventListener('change', (event) => {
+    console.log(tablacompras.rows);
+});

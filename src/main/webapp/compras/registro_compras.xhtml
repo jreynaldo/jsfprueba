@@ -20,7 +20,7 @@
     <div class="container">
 
 
-        <h:form>
+        <h:form id="formulario">
             <h:commandButton styleClass="btn btn-primary" value="modifcar"
             >
                 <f:ajax  execute="tablacompras" render="tablaCompras" />
@@ -36,9 +36,10 @@
                     <div class="autocomplete" style="width:300px;">
 
                         <h:inputText id="nitProveedor" autocomplete="off" name="nitProveedor"
-                                     value="#{compra.nitProveedor}" onblur="validarNit(this)"
-                                     onfocus="autocomplete2(this, #{registroCompraBean.getNitList()})"
-                        />
+                                     value="#{compra.nitProveedor}"
+
+                        >
+                                                </h:inputText>
 
                     </div>
                 </h:column>
